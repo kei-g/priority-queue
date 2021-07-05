@@ -1,0 +1,32 @@
+{
+  "author": "kei-g <km.8k6ce+npm@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/kei-g/priority-queue/issues"
+  },
+  "description": "Priority Queue",
+  "devDependencies": {
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "displayName": "@kei-g/priority-queue",
+  "homepage": "https://github.com/kei-g/priority-queue",
+  "keywords": [
+    "PriorityQueue"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "dist/priorityQueue.js",
+  "name": "@kei-g/priority-queue",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kei-g/priority-queue.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "ts-node test.ts"
+  },
+  "version": "1.0.0"
+}
