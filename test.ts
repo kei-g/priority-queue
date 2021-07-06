@@ -1,4 +1,4 @@
-import { PriorityQueue } from './priorityQueue'
+import { PriorityQueue } from './priority-queue'
 
 const queue = new PriorityQueue<number>((lhs: number, rhs: number) => rhs - lhs)
 

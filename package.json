@@ -17,7 +17,7 @@
     "PriorityQueue"
   ],
   "license": "BSD-3-Clause",
-  "main": "dist/priorityQueue.js",
+  "main": "dist/priority-queue.js",
   "name": "@kei-g/priority-queue",
   "publishConfig": {
     "access": "public"
