@@ -1,5 +1,8 @@
 {
-  "author": "kei-g <km.8k6ce+npm@gmail.com>",
+  "author": {
+    "email": "km.8k6ce+github@gmail.com",
+    "name": "kei-g"
+  },
   "bugs": {
     "url": "https://github.com/kei-g/priority-queue/issues"
   },
