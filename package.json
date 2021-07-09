@@ -36,6 +36,7 @@
   },
   "scripts": {
     "build": "npm run lint && tsc && [ -d dist ] || mkdir dist && uglifyjs build/priority-queue.js --compress --mangle > dist/priority-queue.js && cp build/priority-queue.d.ts dist/",
+    "clean": "rm -fr build/ dist/",
     "lint": "eslint *.ts",
     "prepublishOnly": "npm run build",
     "test": "ts-node test.ts"
