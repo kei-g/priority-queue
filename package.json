@@ -38,6 +38,7 @@
     "build": "npm run lint && tsc && npm run terser",
     "clean": "rm -fr build/ dist/",
     "lint": "eslint *.ts",
+    "postpublish": "npm run clean",
     "prepublishOnly": "npm run build",
     "terser": "[ -d dist ] || mkdir dist && terser build/priority-queue.js -c -m -o dist/priority-queue.js --toplevel && cp build/priority-queue.d.ts dist/",
     "test": "ts-node test.ts"
