@@ -1,0 +1,22 @@
+import { Comparator, PriorityQueue } from '../priority-queue'
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+
+describe('primitive', () => {
+  const ascending = (lhs: number, rhs: number) => rhs - lhs
+  const descending = (lhs: number, rhs: number) => lhs - rhs
+  const sequence = [3, 1, 4, 15, 9, 2, 6, 5, 35, 8, 97, 93]
+  const test = (comparator: Comparator<number>, reverseComparator: Comparator<number>) => {
+    return () => {
+      const queue = new PriorityQueue<number>(comparator)
+      for (const value of sequence)
+        queue.add(value)
+      const array = [] as number[]
+      while (!queue.isEmpty)
+        array.push(queue.pop())
+      expect(array).deep.equal(sequence.sort(reverseComparator))
+    }
+  }
+  it('ascending', test(ascending, descending))
+  it('descending', test(descending, ascending))
+})
