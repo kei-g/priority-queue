@@ -32,6 +32,7 @@ export class PriorityQueue<T> {
         j = k
       if (this.compare(i, j) < 0)
         this.swap(i, j)
+      i = j
     }
   }
 
