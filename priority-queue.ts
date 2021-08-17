@@ -53,8 +53,8 @@ export class PriorityQueue<T> {
   pop(): T {
     if (this.isEmpty)
       throw new Error('No item in PriorityQueue')
-    const value = this.swap(1, this.length)
-    this.items.pop()
+    this.swap(1, this.length)
+    const value = this.items.pop()
     this.sink(1)
     return value
   }
@@ -69,9 +69,8 @@ export class PriorityQueue<T> {
     }
   }
 
-  private swap(i: number, j: number): T {
+  private swap(i: number, j: number): void {
     [this.items[i], this.items[j]] = [this.items[j], this.items[i]]
-    return this.items[j]
   }
 
   /**
