@@ -26,9 +26,10 @@ export class PriorityQueue<T> {
   }
 
   private cascadeDown(i: number): void {
-    for (let j = i * 2; j <= this.length; j *= 2) {
+    const l = this.length
+    for (let j = i * 2; j <= l; j *= 2) {
       const k = j + 1
-      if (j < this.length && this.compare(j, k) < 0)
+      if (j < l && this.compare(j, k) < 0)
         j = k
       if (this.compare(i, j) < 0)
         this.swap(i, j)
@@ -83,7 +84,8 @@ export class PriorityQueue<T> {
    * @param value 更新対象の値
    */
   update(value: T): void {
-    let [i, j] = [1, this.length]
+    const l = this.length
+    let [i, j] = [1, l]
     while (i < j) {
       const k = Math.floor((i + j) / 2)
       const item = this.items[k + 1]
