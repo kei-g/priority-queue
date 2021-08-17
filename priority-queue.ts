@@ -22,13 +22,7 @@ export class PriorityQueue<T> {
    */
   add(value: T): void {
     this.items.push(value)
-    for (let i = this.length; 1 < i;) {
-      const j = Math.floor(i / 2)
-      if (this.compare(i, j) < 0)
-        break
-      this.swap(i, j)
-      i = j
-    }
+    this.cascadeUp(this.length)
   }
 
   private cascadeDown(i: number): void {
@@ -38,6 +32,16 @@ export class PriorityQueue<T> {
         j = k
       if (this.compare(i, j) < 0)
         this.swap(i, j)
+    }
+  }
+
+  private cascadeUp(i: number): void {
+    while (1 < i) {
+      const j = Math.floor(i / 2)
+      if (this.compare(i, j) < 0)
+        break
+      this.swap(i, j)
+      i = j
     }
   }
 
