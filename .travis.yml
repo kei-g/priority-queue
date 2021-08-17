@@ -2,5 +2,7 @@ cache: npm
 language: node_js
 node_js:
   - 16
+notifications:
+  email: false
 script:
   - npm test
