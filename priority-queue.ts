@@ -31,6 +31,16 @@ export class PriorityQueue<T> {
     }
   }
 
+  private cascadeDown(i: number): void {
+    for (let j = i * 2; j <= this.length; j *= 2) {
+      const k = j + 1
+      if (j < this.length && this.compare(j, k) < 0)
+        j = k
+      if (this.compare(i, j) < 0)
+        this.swap(i, j)
+    }
+  }
+
   private compare(lhs: number, rhs: number): number {
     return this.comparator(this.items[lhs], this.items[rhs])
   }
@@ -55,18 +65,8 @@ export class PriorityQueue<T> {
       throw new Error('No item in PriorityQueue')
     this.swap(1, this.length)
     const value = this.items.pop()
-    this.sink(1)
+    this.cascadeDown(1)
     return value
-  }
-
-  private sink(i: number): void {
-    for (let j = i * 2; j <= this.length; j *= 2) {
-      const k = j + 1
-      if (j < this.length && this.compare(j, k) < 0)
-        j = k
-      if (this.compare(i, j) < 0)
-        this.swap(i, j)
-    }
   }
 
   private swap(i: number, j: number): void {
@@ -87,6 +87,6 @@ export class PriorityQueue<T> {
       else
         j = k
     }
-    this.sink(i)
+    this.cascadeDown(i)
   }
 }
