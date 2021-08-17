@@ -4,16 +4,24 @@
 export type Comparator<T> = (lhs: T, rhs: T) => number
 
 /**
+ * 識別子選択関数
+ */
+export type Identifier<T, K> = (value: T) => K
+
+/**
  * 優先度付きキュー
  */
-export class PriorityQueue<T> {
+export class PriorityQueue<T, K = never> {
+  private readonly indices: Map<K, number> = new Map<K, number>()
   private readonly items: T[] = [undefined]
 
   /**
    * コンストラクタ
    * @param comparator 比較関数
+   * @param identifier 識別子選択関数
    */
-  constructor(private readonly comparator: Comparator<T>) {
+  constructor(private readonly comparator: Comparator<T>,
+    private readonly identifier?: Identifier<T, K>) {
   }
 
   /**
@@ -21,8 +29,11 @@ export class PriorityQueue<T> {
    * @param value 値
    */
   add(value: T): void {
+    const l = this.length + 1
+    if (this.identifier)
+      this.indices.set(this.identifier(value), l)
     this.items.push(value)
-    this.cascadeUp(this.length)
+    this.cascadeUp(l)
   }
 
   private cascadeDown(i: number): void {
@@ -71,29 +82,35 @@ export class PriorityQueue<T> {
       throw new Error('No item in PriorityQueue')
     this.swap(1, this.length)
     const value = this.items.pop()
+    if (this.identifier)
+      this.indices.delete(this.identifier(value))
     this.cascadeDown(1)
     return value
   }
 
   private swap(i: number, j: number): void {
-    [this.items[i], this.items[j]] = [this.items[j], this.items[i]]
+    const [u, v] = [this.items[i], this.items[j]]
+    if (this.identifier) {
+      this.indices.set(this.identifier(u), j)
+      this.indices.set(this.identifier(v), i)
+    }
+    [this.items[i], this.items[j]] = [v, u]
   }
 
   /**
-   * 指定された値を持つアイテムの順序を更新する
-   * @param value 更新対象の値
+   * 指定された識別子を持つアイテムの順序を更新する
+   * @param key 更新対象の識別子
    */
-  update(value: T): void {
+  update(key: K): void {
     const l = this.length
-    let [i, j] = [1, l]
-    while (i < j) {
-      const k = Math.floor((i + j) / 2)
-      const item = this.items[k + 1]
-      if (this.comparator(item, value) < 0)
-        i = k + 1
-      else
-        j = k
-    }
+    if (l < 1)
+      throw new Error('No item in PriorityQueue')
+    if (!this.indices.has(key))
+      throw new Error(`Not found in PriorityQueue, ${key}`)
+    const i = this.indices.get(key)
+    if (l < i)
+      throw new Error(`Index out of range, ${i}`)
+    this.cascadeUp(i)
     this.cascadeDown(i)
   }
 }
