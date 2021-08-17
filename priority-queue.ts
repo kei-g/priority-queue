@@ -1,3 +1,5 @@
+import { assert } from 'console'
+
 /**
  * 比較関数
  */
@@ -108,8 +110,7 @@ export class PriorityQueue<T, K = never> {
     if (!this.indices.has(key))
       throw new Error(`Not found in PriorityQueue, ${key}`)
     const i = this.indices.get(key)
-    if (l < i)
-      throw new Error(`Index out of range, ${i}`)
+    assert(i <= l)
     this.cascadeUp(i)
     this.cascadeDown(i)
   }
