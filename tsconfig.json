@@ -17,6 +17,9 @@
     "target": "ES5",
   },
   "files": [
-    "./priority-queue.ts",
+    "priority-queue.ts",
+  ],
+  "include": [
+    "priority-queue.ts",
   ],
 }
