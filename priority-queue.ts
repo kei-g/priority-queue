@@ -76,8 +76,8 @@ export class PriorityQueue<T, K = never> {
   }
 
   /**
-   * 最も小さい値を取り出す
-   * @returns 最小の値
+   * 最も優先度の高いアイテムをキューから取り除き、その値を返す
+   * @returns 最も優先度の高いアイテムの値
    */
   pop(): T {
     if (this.isEmpty)
