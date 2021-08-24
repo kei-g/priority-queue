@@ -71,6 +71,9 @@ export class PriorityQueue<T, K = never> {
     return this.length === 0
   }
 
+  /**
+   * アイテムの数
+   */
   get length(): number {
     return this.items.length - 1
   }
