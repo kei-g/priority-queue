@@ -71,7 +71,7 @@ export class PriorityQueue<T, K = never> {
     return this.length === 0
   }
 
-  private get length(): number {
+  get length(): number {
     return this.items.length - 1
   }
 
