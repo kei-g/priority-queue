@@ -83,9 +83,10 @@ export class PriorityQueue<T, K = never> {
    * @returns 最も優先度の高いアイテムの値
    */
   pop(): T {
-    if (this.isEmpty)
+    const l = this.length
+    if (l === 0)
       throw new Error('No item in PriorityQueue')
-    this.swap(1, this.length)
+    this.swap(1, l)
     const value = this.items.pop()
     if (this.identifier)
       this.indices.delete(this.identifier(value))
