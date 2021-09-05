@@ -48,7 +48,7 @@
     "build:terse:index": "terser build/index.js -c -m -o index.js --toplevel",
     "build:terse:lib": "terser build/lib/priority-queue.js -c -m -o lib/priority-queue.js --toplevel",
     "build:tsc": "tsc",
-    "clean": "rimraf build/ index.d.ts index.js lib/",
+    "clean": "rimraf .nyc_output/ build/ coverage/ index.d.ts index.js lib/",
     "cover": "nyc --check-coverage -r html -r text _mocha",
     "lint": "eslint src/*.ts src/lib/*.ts",
     "postpublish": "run-s clean",
