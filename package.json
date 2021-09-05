@@ -24,7 +24,6 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   },
-  "displayName": "@kei-g/priority-queue",
   "files": [
     "index.d.ts",
     "lib"
