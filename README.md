@@ -1,6 +1,6 @@
-# priority-queue [![License][license-image]][license-url] [![Dependency][depencency-image]][dependency-url] [![Travis][travis-image]][travis-url] [![npm][npm-image]][npm-url]
+# priority-queue [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![travis][travis-image]][travis-url]
 
 Priority Queue implementation written in TypeScript
 
