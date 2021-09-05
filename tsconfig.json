@@ -2,7 +2,7 @@
   "compilerOptions": {
     "charset": "utf8",
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": ".",
     "lib": [
       "ES2015"
     ],
@@ -18,9 +18,7 @@
     "target": "ES6",
   },
   "files": [
-    "priority-queue.ts",
-  ],
-  "include": [
-    "priority-queue.ts",
+    "src/index.ts",
+    "src/lib/priority-queue.ts",
   ],
 }

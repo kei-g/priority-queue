@@ -15,6 +15,7 @@
     "@typescript-eslint/parser": "^4.30.0",
     "chai": "^4.3.4",
     "eslint": "^7.32.0",
+    "mkdirp": "^1.0.4",
     "mocha": "^9.1.1",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
@@ -25,6 +26,7 @@
   },
   "displayName": "@kei-g/priority-queue",
   "files": [
+    "index.d.ts",
     "lib"
   ],
   "homepage": "https://github.com/kei-g/priority-queue",
@@ -32,7 +34,7 @@
     "PriorityQueue"
   ],
   "license": "BSD-3-Clause",
-  "main": "lib/priority-queue.js",
+  "main": "index.js",
   "name": "@kei-g/priority-queue",
   "publishConfig": {
     "access": "public"
@@ -42,15 +44,18 @@
     "url": "https://github.com/kei-g/priority-queue.git"
   },
   "scripts": {
-    "build": "npm-run-all -p clean lint -s build:tsc -p build:terse:*",
-    "build:terse:lib": "terser build/priority-queue.js -c -m -o lib/priority-queue.js --toplevel",
+    "build": "npm-run-all -p clean lint -p build:preterse build:tsc -p build:terse:*",
+    "build:preterse": "mkdirp lib",
+    "build:terse:index": "terser build/index.js -c -m -o index.js --toplevel",
+    "build:terse:lib": "terser build/lib/priority-queue.js -c -m -o lib/priority-queue.js --toplevel",
     "build:tsc": "tsc",
-    "clean": "rimraf build/ lib/",
+    "clean": "rimraf build/ index.d.ts index.js lib/",
     "cover": "nyc --check-coverage -r html -r text _mocha",
-    "lint": "eslint *.ts",
+    "lint": "eslint src/*.ts src/lib/*.ts",
     "postpublish": "run-s clean",
     "prepublishOnly": "run-s build",
     "test": "run-p cover lint"
   },
+  "types": "index.d.ts",
   "version": "1.1.2"
 }

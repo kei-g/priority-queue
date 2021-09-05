@@ -1,4 +1,4 @@
-import { Comparator, PriorityQueue } from '../priority-queue'
+import { Comparator, PriorityQueue } from '../src'
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
 
