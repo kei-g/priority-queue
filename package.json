@@ -34,12 +34,6 @@
   "license": "BSD-3-Clause",
   "main": "lib/priority-queue.js",
   "name": "@kei-g/priority-queue",
-  "nyc": {
-    "branches": 100,
-    "functions": 100,
-    "lines": 100,
-    "statements": 100
-  },
   "publishConfig": {
     "access": "public"
   },
