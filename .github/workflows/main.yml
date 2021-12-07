@@ -6,7 +6,10 @@ jobs:
         node: [ '14.17.5', '16.13.1', '17.2.0' ]
     name: Test on Node.js ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
