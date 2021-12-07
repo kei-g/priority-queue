@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "charset": "utf8",
     "declaration": true,
     "declarationDir": ".",
+    "emitDeclarationOnly": true,
     "lib": [
       "ES2015"
     ],
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
-    "outDir": "build",
     "pretty": true,
     "removeComments": false,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": false,
-    "target": "ES6",
+    "target": "ES2015",
   },
-  "files": [
-    "src/index.ts",
-    "src/lib/priority-queue.ts",
+  "exclude": [],
+  "include": [
+    "src",
   ],
 }
