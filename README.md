@@ -2,7 +2,13 @@
 
 [![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-url] [![travis][travis-image]][travis-url]
 
-Priority Queue implementation written in TypeScript
+`priority-queue` - Priority Queue implementation written in TypeScript
+
+## Installation
+
+```shell
+npm install @kei-g/priority-queue --save
+```
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/priority-queue?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/priority-queue?activeTab=dependencies
