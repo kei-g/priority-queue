@@ -23,10 +23,6 @@
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
-  "files": [
-    "index.d.ts",
-    "lib"
-  ],
   "homepage": "https://github.com/kei-g/priority-queue",
   "keywords": [
     "PriorityQueue"
