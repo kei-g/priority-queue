@@ -1,6 +1,6 @@
 # priority-queue [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub (build)][github-build-image]][github-url] [![GitHub (test)][github-test-image]][github-url] [![travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Build)][github-build-image]][github-build-url] [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] [![travis][travis-image]][travis-url]
 
 `priority-queue` - Priority Queue implementation written in TypeScript
 
@@ -12,8 +12,10 @@ npm install @kei-g/priority-queue --save
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/priority-queue?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/priority-queue?activeTab=dependencies
-[github-build-image]:https://img.shields.io/github/workflow/status/kei-g/priority-queue/build/main?label=build&logo=github
-[github-test-image]:https://img.shields.io/github/workflow/status/kei-g/priority-queue/test/main?label=test&logo=github
+[github-build-image]:https://github.com/kei-g/priority-queue/actions/workflows/build.yml/badge.svg
+[github-build-url]:https://github.com/kei-g/priority-queue/actions/workflows/build.yml
+[github-coverage-image]:https://github.com/kei-g/priority-queue/actions/workflows/coverage.yml/badge.svg
+[github-coverage-url]:https://github.com/kei-g/priority-queue/actions/workflows/coverage.yml
 [github-url]:https://github.com/kei-g/priority-queue
 [license-image]:https://img.shields.io/github/license/kei-g/priority-queue
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
