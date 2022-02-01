@@ -1,6 +1,6 @@
 # priority-queue [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Build)][github-build-image]][github-build-url] [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] [![travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Build)][github-build-image]][github-build-url] [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url]
 
 `priority-queue` - Priority Queue implementation written in TypeScript
 
@@ -25,5 +25,3 @@ npm install @kei-g/priority-queue --save
 [npmsio-url]:https://npms.io/search?q=%40kei-g%2Fpriority-queue
 [nyc-cov-image]:https://img.shields.io/nycrc/kei-g/priority-queue?config=.nycrc.json&label=coverage&logo=mocha
 [quality-image]:https://img.shields.io/npms-io/quality-score/@kei-g/priority-queue?logo=npm
-[travis-image]:https://img.shields.io/travis/com/kei-g/priority-queue/main.svg?label=build%20%26%20test&logo=travis
-[travis-url]:https://app.travis-ci.com/kei-g/priority-queue
