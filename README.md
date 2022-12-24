@@ -6,7 +6,7 @@
 
 ## CI Status
 
-| Action | Status |
+| Target | Status |
 |-|-|
 | Build | [![GitHub (Build)][github-build-image]][github-build-url] |
 | CodeQL | [![GitHub (CodeQL)][github-codeql-image]][github-codeql-url] |
