@@ -42,8 +42,6 @@ on:
       - '.gitignore'
       - 'LICENSE'
   push:
-    branches:
-      - main
     paths-ignore:
       - '**.md'
       - '.editorconfig'
