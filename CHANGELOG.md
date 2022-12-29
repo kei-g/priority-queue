@@ -1,5 +1,19 @@
 # ChangeLogs
 
+## Version 1.1.5
+
+- :green_heart: CI chore
+  - Job to get commit summary to create release is fixed
+  - Job to publish the package is added
+  - Workflows 'build' and 'coverage' are made to be run only for branches
+- :arrow_up: Dependent packages are bumped
+  - `@types/node` is bumped from 0.16.10 to 0.16.12
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.47.0 to 5.47.1
+  - `@typescript-eslint/parser` is bumped from 5.47.0 to 5.47.1
+- :memo: Description of CI status table is modified
+- :lock: Security audit
+  - `json5` is bumped from 2.2.1 to 2.2.2 by `npm audit fix`
+
 ## Version 1.1.4
 
 - :building_construction: Build system is migrated from `terser` to `esbuild`
