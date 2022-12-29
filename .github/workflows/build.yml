@@ -1,6 +1,7 @@
 jobs:
   build:
     continue-on-error: true
+    if: github.ref_type == 'branch'
     name: Build on Node.js ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
