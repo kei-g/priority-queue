@@ -7,9 +7,10 @@
   - Job to publish the package is added
   - Workflows 'build' and 'coverage' are made to be run only for branches
 - :arrow_up: Dependent packages are bumped
-  - `@types/node` is bumped from 0.16.10 to 0.16.12
+  - `@types/node` is bumped from 18.11.17 to 18.11.18
   - `@typescript-eslint/eslint-plugin` is bumped from 5.47.0 to 5.47.1
   - `@typescript-eslint/parser` is bumped from 5.47.0 to 5.47.1
+  - `esbuild` is bumped from 0.16.10 to 0.16.12
 - :memo: Description of CI status table is modified
 - :lock: Security audit
   - `json5` is bumped from 2.2.1 to 2.2.2 by `npm audit fix`
