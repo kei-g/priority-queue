@@ -32,5 +32,5 @@ on:
   push:
     branches:
       - '**'
-  schedule:
-    - cron: '32 23 * * 3'
+    tags-ignore:
+      - '**'
