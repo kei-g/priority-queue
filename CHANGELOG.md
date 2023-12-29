@@ -1,5 +1,23 @@
 # ChangeLogs
 
+## Version 1.1.9
+
+- :green_heart: CI
+  - `actions/checkout` is bumped from 3 to 4
+  - `actions/setup-node` is bumped from 3 to 4
+  - `actions/upload-artifact` is bumped from 3 to 4
+- :arrow_up: Packages for development are bumped
+  - `@types/chai` is bumped from 4.3.5 to 4.3.11
+  - `@types/mocha` is bumped from 10.0.1 to 10.0.6
+  - `@types/node` is bumped from 20.1.3 to 20.10.5
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.59.5 to 6.16.0
+  - `@typescript-eslint/parser` is bumped from 5.59.5 to 6.16.0
+  - `chai` is bumped from 4.3.7 to 5.0.0
+  - `esbuild` is bumped from 0.17.18 to 0.19.10
+  - `eslint` is bumped from 8.40.0 to 8.56.0
+  - `rimraf` is bumped from 5.0.0 to 5.0.5
+  - `typescript` is bumped from 5.0.4 to 5.3.3
+
 ## Version 1.1.8
 
 - :green_heart: CI
