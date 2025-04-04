@@ -1,9 +1,14 @@
 import { Comparator, PriorityQueue } from '../src'
-import { assert, expect } from 'chai'
+import { deepEqual, throws } from 'node:assert'
 import { describe, it } from 'mocha'
 
 class PI {
-  constructor(readonly id: number, public value: number) {
+  readonly id: number
+  value: number
+
+  constructor(id: number, value: number) {
+    this.id = id
+    this.value = value
   }
 
   get clone(): PI {
@@ -47,7 +52,7 @@ class PriorityQueuePI extends PriorityQueue<PI, number> {
 
   test(data: PI[] | Record<number, PI>): void {
     const a = this.toArray()
-    expect(a).deep.equal(this.sort(data))
+    deepEqual(a, this.sort(data))
   }
 
   toArray(): PI[] {
@@ -88,16 +93,16 @@ describe('exception', () => {
   const ctor = () => new PriorityQueuePI('ascending', sequence)
   it('not found', () => {
     const queue = ctor()
-    assert.throw(() => queue.update(sequence.length + 1))
+    throws(() => queue.update(sequence.length + 1))
   })
   it('over pop', () => {
     const queue = ctor()
     queue.toArray()
-    assert.throw(() => queue.pop())
+    throws(() => queue.pop())
   })
   it('over update', () => {
     const queue = ctor()
     queue.toArray()
-    assert.throw(() => queue.update(1))
+    throws(() => queue.update(1))
   })
 })

@@ -1,6 +1,6 @@
 import { Comparator, PriorityQueue } from '../src'
 import { describe, it } from 'mocha'
-import { expect } from 'chai'
+import { deepEqual } from 'node:assert'
 
 describe('primitive', () => {
   const ascending = (lhs: number, rhs: number) => rhs - lhs
@@ -14,7 +14,7 @@ describe('primitive', () => {
       const array = [] as number[]
       while (!queue.isEmpty)
         array.push(queue.pop())
-      expect(array).deep.equal(sequence.sort(reverseComparator))
+      deepEqual(array, sequence.sort(reverseComparator))
     }
   }
   it('ascending', test(ascending, descending))
