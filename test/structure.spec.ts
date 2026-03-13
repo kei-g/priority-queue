@@ -1,4 +1,4 @@
-import { Comparator, PriorityQueue } from '../src'
+import { type Comparator, PriorityQueue } from '../src/index.ts'
 import { deepEqual, throws } from 'node:assert'
 import { describe, it } from 'mocha'
 
@@ -42,7 +42,7 @@ class PriorityQueuePI extends PriorityQueue<PI, number> {
   }
 
   private sort(data: PI[] | Record<number, PI>): PI[] {
-    if (data instanceof Array)
+    if (Array.isArray(data))
       return data.sort(this.reverseComparator)
     const array = [] as PI[]
     for (const id in data)

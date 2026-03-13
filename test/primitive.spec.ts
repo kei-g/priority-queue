@@ -1,4 +1,4 @@
-import { Comparator, PriorityQueue } from '../src'
+import { type Comparator, PriorityQueue } from '../src/index.ts'
 import { describe, it } from 'mocha'
 import { deepEqual } from 'node:assert'
 

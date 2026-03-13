@@ -1,4 +1,4 @@
-import { assert } from 'console'
+import { assert } from 'node:console'
 
 /**
  * 比較関数
@@ -51,7 +51,7 @@ export class PriorityQueue<T, K = never> {
   }
 
   private cascadeUp(i: number): void {
-    while (1 < i) {
+    while (i > 1) {
       const j = Math.floor(i / 2)
       if (this.compare(i, j) < 0)
         break
