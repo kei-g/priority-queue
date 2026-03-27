@@ -3,8 +3,9 @@
     "allowImportingTsExtensions": true,
     "alwaysStrict": true,
     "declaration": true,
-    "declarationDir": ".",
+    "declarationDir": "./types",
     "emitDeclarationOnly": true,
+    "ignoreDeprecations": "6.0",
     "lib": [
       "ES2015"
     ],
@@ -13,12 +14,13 @@
     "newLine": "lf",
     "pretty": true,
     "removeComments": false,
+    "rootDir": ".",
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": false,
     "target": "ES2015",
-    "typeRoots": [
-      "node_modules/@types",
+    "types": [
+      "node",
     ],
   },
   "exclude": [],

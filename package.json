@@ -38,6 +38,7 @@
     "cover": "c8 --check-coverage _mocha",
     "lint": "biome lint --write",
     "postpublish": "run-s clean",
+    "postbuild:tsc": "mv types/src/index.d.ts types/src/lib/priority-queue.d.ts ./",
     "prebuild": "run-p clean lint",
     "prepublishOnly": "run-s build",
     "test": "run-p cover lint"
