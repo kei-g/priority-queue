@@ -56,7 +56,7 @@
       "recommended": true,
       "style": {
         "noNonNullAssertion": "off",
-        "noYodaExpression": "error",
+        "noYodaExpression": "off",
         "useCollapsedElseIf": "error",
         "useShorthandFunctionType": "error"
       },

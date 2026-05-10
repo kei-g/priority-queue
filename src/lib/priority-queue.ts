@@ -14,6 +14,8 @@ export type Identifier<T, K> = (value: T) => K
  * 優先度付きキュー
  */
 export class PriorityQueue<T, K = never> {
+  private readonly compareItems: Comparator<T>
+  private readonly identify: Identifier<T, K> | undefined
   private readonly indices: Map<K, number> = new Map<K, number>()
   private readonly items: T[] = [undefined]
 
@@ -22,8 +24,9 @@ export class PriorityQueue<T, K = never> {
    * @param comparator 比較関数
    * @param identifier 識別子選択関数
    */
-  constructor(private readonly comparator: Comparator<T>,
-    private readonly identifier?: Identifier<T, K>) {
+  constructor(comparator: Comparator<T>, identifier?: Identifier<T, K>) {
+    this.compareItems = comparator
+    this.identify = identifier
   }
 
   /**
@@ -31,37 +34,46 @@ export class PriorityQueue<T, K = never> {
    * @param value 値
    */
   add(value: T): void {
-    const l = this.length + 1
-    if (this.identifier)
-      this.indices.set(this.identifier(value), l)
+    const index = this.length + 1
+    if (this.identify) {
+      const key = this.identify(value)
+      this.indices.set(key, index)
+    }
     this.items.push(value)
-    this.cascadeUp(l)
+    this.cascadeUp(index)
   }
 
-  private cascadeDown(i: number): void {
-    const l = this.length
-    for (let j = i * 2; j <= l; j *= 2) {
-      const k = j + 1
-      if (j < l && this.compare(j, k) < 0)
-        j = k
-      if (this.compare(i, j) < 0)
-        this.swap(i, j)
-      i = j
+  private cascadeDown(index: number): void {
+    const { length } = this
+    for (let current = index * 2; current <= length; current *= 2) {
+      const right = current + 1
+      if (current < length && this.compareAt(current, right) < 0)
+        current = right
+      if (this.compareAt(index, current) < 0)
+        this.swap(index, current)
+      index = current
     }
   }
 
-  private cascadeUp(i: number): void {
-    while (i > 1) {
-      const j = Math.floor(i / 2)
-      if (this.compare(i, j) < 0)
+  private cascadeUp(index: number): void {
+    while (1 < index) {
+      const parent = Math.floor(index / 2)
+      if (this.compareAt(index, parent) < 0)
         break
-      this.swap(i, j)
-      i = j
+      this.swap(index, parent)
+      index = parent
     }
   }
 
-  private compare(lhs: number, rhs: number): number {
-    return this.comparator(this.items[lhs], this.items[rhs])
+  /**
+   * 指定したインデックスのアイテムを比較する
+   *
+   * @param lhs 左辺のインデックス
+   * @param rhs 右辺のインデックス
+   * @returns 比較結果
+   */
+  private compareAt(lhs: number, rhs: number): number {
+    return this.compareItems(this.items[lhs], this.items[rhs])
   }
 
   /**
@@ -83,22 +95,24 @@ export class PriorityQueue<T, K = never> {
    * @returns 最も優先度の高いアイテムの値
    */
   pop(): T {
-    const l = this.length
-    if (l === 0)
+    const { length } = this
+    if (length === 0)
       throw new Error('No item in PriorityQueue')
-    this.swap(1, l)
+    this.swap(1, length)
     const value = this.items.pop()
-    if (this.identifier)
-      this.indices.delete(this.identifier(value))
+    if (this.identify) {
+      const key = this.identify(value)
+      this.indices.delete(key)
+    }
     this.cascadeDown(1)
     return value
   }
 
   private swap(i: number, j: number): void {
     const [u, v] = [this.items[i], this.items[j]]
-    if (this.identifier) {
-      this.indices.set(this.identifier(u), j)
-      this.indices.set(this.identifier(v), i)
+    if (this.identify) {
+      this.indices.set(this.identify(u), j)
+      this.indices.set(this.identify(v), i)
     }
     [this.items[i], this.items[j]] = [v, u]
   }
@@ -108,14 +122,14 @@ export class PriorityQueue<T, K = never> {
    * @param key 更新対象の識別子
    */
   update(key: K): void {
-    const l = this.length
-    if (l < 1)
+    const { length } = this
+    if (length < 1)
       throw new Error('No item in PriorityQueue')
     if (!this.indices.has(key))
       throw new Error(`Not found in PriorityQueue, ${key}`)
-    const i = this.indices.get(key)
-    assert(i <= l)
-    this.cascadeUp(i)
-    this.cascadeDown(i)
+    const index = this.indices.get(key)
+    assert(index <= length)
+    this.cascadeUp(index)
+    this.cascadeDown(index)
   }
 }
