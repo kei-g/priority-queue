@@ -39,7 +39,7 @@
     "build": "npm-run-all2 --parallel build:*",
     "build:bundle": "esbuild src/index.ts --bundle --charset=utf8 --format=cjs --minify --outfile=index.js --platform=node --target=ES2015",
     "build:tsc": "tsc",
-    "clean": "node -e '[\"coverage\", \"index.d.ts\", \"index.js\", \"lib\", \"priority-queue.d.ts\"].forEach(name => fs.rmSync(name, { force: true, recursive: true }))'",
+    "clean": "node -e '[\"coverage\", \"index.d.ts\", \"index.js\", \"lib\", \"priority-queue.d.ts\", \"types\"].forEach(name => fs.rmSync(name, { force: true, recursive: true }))'",
     "cover": "c8 node --test",
     "lint": "biome lint --write",
     "postpublish": "npm run clean",
