@@ -26,6 +26,9 @@
   "name": "@kei-g/priority-queue",
   "overrides": {
     "c8": {
+      "test-exclude": {
+        "minimatch": "^10.2.5"
+      },
       "yargs": "^18.0.0"
     }
   },
