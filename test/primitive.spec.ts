@@ -1,6 +1,6 @@
 import { type Comparator, PriorityQueue } from '../src/index.ts'
-import { describe, it } from 'mocha'
 import { deepEqual } from 'node:assert'
+import { describe, it } from 'node:test'
 
 const ascending = (lhs: number, rhs: number) => rhs - lhs
 const ascendingByValue = (lhs: [number, number], rhs: [number, number]) => rhs[1] - lhs[1]

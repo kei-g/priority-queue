@@ -1,6 +1,6 @@
 import { type Comparator, PriorityQueue } from '../src/index.ts'
 import { deepEqual, throws } from 'node:assert'
-import { describe, it } from 'mocha'
+import { describe, it } from 'node:test'
 
 class PI {
   readonly id: number
