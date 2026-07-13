@@ -14,7 +14,7 @@
     "esbuild": "^0.28.1",
     "esbuild-register": "^3.6.0",
     "npm-run-all2": "^9.0.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "homepage": "https://github.com/kei-g/priority-queue",
   "keywords": [
